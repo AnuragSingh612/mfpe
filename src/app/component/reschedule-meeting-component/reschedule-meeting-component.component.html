@@ -1,26 +1,41 @@
-<div class="container">
-<input type="text" [(ngModel)]="id" placeholder="Search Meeting By Id" (input)="onSearchId()">
-<button type="submit" (click)="onPresss()"> Search</button>
+<div class="my-5">
+
+<div class="mx-auto w-25" style="max-width: 100%">
+  <div style="margin-right: 10px;">
+<input class="text-center mb-3 rounded-pill border border-dark " type="text" [(ngModel)]="id" placeholder="Search Meeting By Id" (input)="onSearchId()">
+
+
+<button type="submit" class="btn btn-primary"
+ (click)="onPresss()"
+ style="--bs-btn-padding-y: .25rem;
+  --bs-btn-padding-x: .25rem;
+   --bs-btn-font-size: .75rem;"> Search</button>
 </div>
 <form [formGroup]="meetingForm" class="form" (ngSubmit)="onSubmit(meetingForm.value)">
-    <div class="form-group">
+    <div class="form-group mb-3">
+      <div class="col-md-12">
       <label>*Meeting Link:</label>
       <input type="text" class="form-control" formControlName="meetingLink" class="form-control">
-
     </div>
-    <div class="form-group">
+    </div>
+    <div class="form-group mb-3">
+      <div class="col-md-12">
         <label>*Meeting Date:</label>
         <input type="datetime-local" class="form-control" formControlName="meetingDate">
       </div> 
-    
-      <div class="form-group">
+    </div>
+      <div class="form-group mb-3">
+        <div class="col-md-12">
         <label>*Meeting Time:</label>
         <input type="datetime-local" class="form-control" formControlName="meetingTime">
       </div> 
-      <div class="form-group">
+      </div>
+      <div class="form-group mb-3">
+        <div class="col-md-12">
         <label>*Meeting Type:</label>
         <input type="text" class="form-control" formControlName="meetingType" >
-       
         </div>
-    <button type="submit" class="btn btn-success" >Update</button>
+        </div>
+    <button type="submit" class="btn btn-success w-25" >Update</button>
   </form>
+</div>
