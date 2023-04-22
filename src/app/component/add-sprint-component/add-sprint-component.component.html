@@ -1,7 +1,6 @@
 <div class="container">
     <h2>Create a new Sprint</h2>
     <form (ngSubmit)="onSubmit()">
-     
       <div class="form-group">
         <label>*Project Code:</label>
         <input type="text" class="form-control" id="projectCode"
@@ -48,8 +47,8 @@
     </form>
      
     <h2>List of Sprints</h2>
-    <table class="table">
-      <thead>
+    <table class="table table-bordered">
+      <thead class="thead-dark">
         <tr>
           <th>Sprint ID</th>
           <th>Sprint Name</th>

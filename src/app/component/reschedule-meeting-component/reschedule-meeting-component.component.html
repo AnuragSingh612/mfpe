@@ -3,10 +3,6 @@
 <button type="submit" (click)="onPresss()"> Search</button>
 </div>
 <form [formGroup]="meetingForm" class="form" (ngSubmit)="onSubmit(meetingForm.value)">
-    <!-- <div class="form-group">
-      <label>Sprint ID:</label>
-      <input type="text" class="form-control" id="sprintId"
-      [(ngModel)]="sprint.sprintId" name="sprintId"> -->
     <div class="form-group">
       <label>*Meeting Link:</label>
       <input type="text" class="form-control" formControlName="meetingLink" class="form-control">
@@ -26,5 +22,5 @@
         <input type="text" class="form-control" formControlName="meetingType" >
        
         </div>
-    <button type="submit" class="btn btn-primary" >Update</button>
+    <button type="submit" class="btn btn-success" >Update</button>
   </form>
