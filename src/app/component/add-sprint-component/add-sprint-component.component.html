@@ -1,0 +1,74 @@
+<div class="container">
+    <h2>Create a new Sprint</h2>
+    <form (ngSubmit)="onSubmit()">
+     
+      <div class="form-group">
+        <label>*Project Code:</label>
+        <input type="text" class="form-control" id="projectCode"
+        [(ngModel)]="sprint.projectCode" required
+        ngModel name="projectCode" #name="ngModel">
+        <!--Validations-->
+        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+        class="alert alert-danger">
+        <div *ngIf="name.errors?.required">
+        Project Code is required.
+      </div> 
+        </div>
+        <!--Validations closed-->
+        </div>
+      <div class="form-group">
+        <label>*Start Date:</label>
+        <input type="datetime-local" class="form-control" id="startDate"
+        [(ngModel)]="sprint.startDate"required ngModel name="startDate" #namee="ngModel">
+
+        <div *ngIf="namee.invalid && (namee.dirty || namee.touched)"
+        class="alert alert-danger">
+        <div *ngIf="namee.errors?.required">
+        Start Date is required.
+      </div> 
+        </div>
+      
+      </div> 
+      <div class="form-group">
+        <label>*End Date:</label>
+        <input type="datetime-local" class="form-control" id="endDate"
+        [(ngModel)]="sprint.endDate" required ngModel name="endDate" #enddate="ngModel">
+        <div *ngIf="error.isError" class="alert alert-danger">
+          {{ error.errorMessage }}
+       </div>
+       <div *ngIf="enddate.invalid && (enddate.dirty || enddate.touched)"
+       class="alert alert-danger">
+       <div *ngIf="enddate.errors?.required">
+       End Date is required.
+     </div> 
+       </div>
+        
+      </div> 
+      <button type="submit" class="btn btn-primary" >Create</button>
+    </form>
+     
+    <h2>List of Sprints</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Sprint ID</th>
+          <th>Sprint Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Project Code</th>
+          <th>Created On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sprint of sprints">
+          <td>{{ sprint.sprintId }}</td>
+          <td>{{ sprint.sprintName }}</td>
+          <td>{{ sprint.startDate }}</td>
+          <td>{{ sprint.endDate }}</td>
+          <td>{{ sprint.projectCode }}</td>
+          <td>{{ sprint.createdOn }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  

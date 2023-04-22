@@ -1,0 +1,30 @@
+<div class="container">
+<input type="text" [(ngModel)]="id" placeholder="Search Meeting By Id" (input)="onSearchId()">
+<button type="submit" (click)="onPresss()"> Search</button>
+</div>
+<form [formGroup]="meetingForm" class="form" (ngSubmit)="onSubmit(meetingForm.value)">
+    <!-- <div class="form-group">
+      <label>Sprint ID:</label>
+      <input type="text" class="form-control" id="sprintId"
+      [(ngModel)]="sprint.sprintId" name="sprintId"> -->
+    <div class="form-group">
+      <label>*Meeting Link:</label>
+      <input type="text" class="form-control" formControlName="meetingLink" class="form-control">
+
+    </div>
+    <div class="form-group">
+        <label>*Meeting Date:</label>
+        <input type="datetime-local" class="form-control" formControlName="meetingDate">
+      </div> 
+    
+      <div class="form-group">
+        <label>*Meeting Time:</label>
+        <input type="datetime-local" class="form-control" formControlName="meetingTime">
+      </div> 
+      <div class="form-group">
+        <label>*Meeting Type:</label>
+        <input type="text" class="form-control" formControlName="meetingType" >
+       
+        </div>
+    <button type="submit" class="btn btn-primary" >Update</button>
+  </form>

@@ -1,0 +1,89 @@
+<div class="container">
+    <h2>Create A new meeting</h2>
+    <form #meetingForm="ngForm" (ngSubmit)="onSubmit(meetingForm.value)">
+      <!-- <div class="form-group">
+        <label>Sprint ID:</label>
+        <input type="text" class="form-control" id="sprintId"
+        [(ngModel)]="sprint.sprintId" name="sprintId"> -->
+      <div class="form-group">
+        <label>*Meeting Link:</label>
+        <input type="text" class="form-control" ngModel name="meetingLink" required
+        #meetinglink="ngModel">
+        
+        <div *ngIf="meetinglink.invalid && (meetinglink.dirty || meetinglink.touched)"
+        class="alert alert-danger">
+        <div *ngIf="meetinglink.errors?.required">
+        Meeting Link is required.
+      </div> 
+        </div>
+    
+      </div> 
+      <div class="form-group">
+        <label>*Meeting Password:</label>
+        <input type="text" class="form-control" ngModel name="meetingPassword" required #meetingpassword="ngModel">
+        <div *ngIf="meetingpassword.invalid && (meetingpassword.dirty || meetingpassword.touched)"
+        class="alert alert-danger">
+        <div *ngIf="meetingpassword.errors?.required">
+        Meeting Password is required.
+      </div> 
+        </div>
+      </div> 
+      <div class="form-group">
+        <label>*Meeting Type:</label>
+        <input type="text" class="form-control" ngModel name ="meetingType" required #meetingtype="ngModel">
+        <div *ngIf="meetingtype.invalid && (meetingtype.dirty || meetingtype.touched)"
+        class="alert alert-danger">
+        <div *ngIf="meetingtype.errors?.required">
+        Meeting type is required.
+      </div> 
+        </div>
+        </div>
+
+      <div class="form-group">
+        <label>*Status</label>
+        <input type="text" class="form-control" ngModel name="status" required #meetingstatus="ngModel">
+        <div *ngIf="meetingstatus.invalid && (meetingstatus.dirty || meetingstatus.touched)"
+        class="alert alert-danger">
+        <div *ngIf="meetingstatus.errors?.required">
+        Meeting status is required.
+      </div> 
+        </div>
+    
+      </div> 
+      <div class="form-group">
+        <label>*Meeting Date:</label>
+        <input type="datetime-local" class="form-control" ngModel name="meetingDate" required #meetingDate="ngModel">
+        <div *ngIf="meetingDate.invalid && (meetingDate.dirty || meetingDate.touched)"
+        class="alert alert-danger">
+        <div *ngIf="meetingDate.errors?.required">
+        Meeting Date is required.
+      </div> 
+        </div>
+
+      </div> 
+      <div class="form-group">
+        <label>*Meeting Time:</label>
+        <input type="datetime-local" class="form-control" ngModel name="meetingTime" required #meetingTime="ngModel">
+        <div *ngIf="meetingTime.invalid && (meetingTime.dirty || meetingTime.touched)"
+        class="alert alert-danger">
+        <div *ngIf="meetingTime.errors?.required">
+        Meeting time is required.
+      </div> 
+        </div>
+      </div> 
+      <div class="form-group">
+      <select [(ngModel)]='defaultSprint' ngModel name="sprintId">
+        <option>Sprints</option>
+        <option *ngFor="let sprint of sprints" [value]="sprint.sprintId">{{sprint.sprintName}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+        <select [(ngModel)]='defaultPlatform' ngModel name="meeting_platform_id" (ngModelChange)='onSelected($event)'>
+            <option>Platforms</option>
+          <option *ngFor="let platform of platforms" [value]="platform.id">{{platform.name}}</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn btn-primary" >Create</button>
+    </form>
+   
