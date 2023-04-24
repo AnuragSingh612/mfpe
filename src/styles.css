@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+.navbar {
+    background-color: #0026ff; /* change the background color to teal */
+    padding-bottom:20px;
+    padding-top: 20px;
+  }
+  
+  .navbar-brand {
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+    color: #fff; /* change the text color to white */
+  }
+  
+  .navbar .nav-link {
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+    color: #fff; /* change the text color to white */
+  }
+  
+  .navbar .nav-link:hover {
+    color: #f0f0f0; /* change the text color on hover */
+  }
+  .navbar .nav-item{
+    margin-right: 10px;
+    border-color: rgb(255, 255, 255);
+    border: #fff;
+    border-radius:1;
+  }
