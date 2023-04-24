@@ -1,9 +1,8 @@
 <div class="my-5">
 
-<div class="mx-auto w-25" style="max-width: 100%">
-  <div style="margin-right: 10px;">
-<input class="text-center mb-3 rounded-pill border border-dark " type="text" [(ngModel)]="id" placeholder="Search Meeting By Id" (input)="onSearchId()">
-
+<div class="mx-auto w-25" style="max-width: 100%;">
+  <div style="margin-left: 20%;">
+<input class="text-center mb-3 rounded-pill border border-dark " type="text"  style="margin-right: 10px;" [(ngModel)]="id" placeholder="Search Meeting By Id" (input)="onSearchId()">
 
 <button type="submit" class="btn btn-primary"
  (click)="onPresss()"
@@ -27,7 +26,7 @@
       <div class="form-group mb-3">
         <div class="col-md-12">
         <label>*Meeting Time:</label>
-        <input type="datetime-local" class="form-control" formControlName="meetingTime">
+        <input type="time" class="form-control" formControlName="meetingTime">
       </div> 
       </div>
       <div class="form-group mb-3">
