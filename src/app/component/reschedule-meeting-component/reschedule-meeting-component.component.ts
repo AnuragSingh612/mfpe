@@ -19,11 +19,14 @@ export class RescheduleMeetingComponentComponent {
   constructor(private http:HttpClient,private meetservice:RescheduleserviceService,private fb: FormBuilder,private meetingser:MeetingServiceService){
     this.meetingForm = fb.group({
       meetingLink: ['',Validators.required],
-      meetingDate:[''],
-      meetingTime:[''],
-      meetingType:['']
+      meetingDate:['',Validators.required],
+      meetingTime:['',Validators.required],
+      meetingType:['',Validators.required]
     });  
 
+  }
+  get registerFormControl() {
+    return this.meetingForm.controls;
   }
 
   ngOnInit(){
@@ -44,6 +47,7 @@ export class RescheduleMeetingComponentComponent {
   onSubmit(data:Meetings){
     
     console.log(data);
+    
     return this.http.patch('http://localhost:8080/api/meetings/update/'+this.id+"",data).subscribe((dataq)=>{
       Swal.fire("Meeting got updated!");
      })

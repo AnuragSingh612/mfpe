@@ -53,8 +53,9 @@ export class AddMeetingsComponentComponent implements OnInit{
     console.log(data);
     this.meetingser.saveMeeting(data).subscribe((data)=>{
      console.log("---->>>>"+data);
+     Swal.fire("Meeting Created!");
     })
-    Swal.fire("Meeting Created!");
+   
 
   }
 }

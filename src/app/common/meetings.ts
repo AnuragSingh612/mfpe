@@ -8,6 +8,7 @@ export class Meetings {
     sprintID:number;
     meeting_platform_id:number;
     meetingType:string;
+    meetingLink:string;
     meetingPassword:string;
     createdOn:Date;
     status:string;

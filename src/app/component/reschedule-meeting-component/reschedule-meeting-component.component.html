@@ -11,10 +11,12 @@
    --bs-btn-font-size: .75rem;"> Search</button>
 </div>
 <form [formGroup]="meetingForm" class="form" (ngSubmit)="onSubmit(meetingForm.value)">
+  <div class="card">
     <div class="form-group mb-3">
       <div class="col-md-12">
       <label>*Meeting Link:</label>
-      <input type="text" class="form-control" formControlName="meetingLink" class="form-control">
+      <input type="text" class="form-control" formControlName="meetingLink" class="form-control" required>
+      
     </div>
     </div>
     <div class="form-group mb-3">
@@ -29,12 +31,35 @@
         <input type="time" class="form-control" formControlName="meetingTime">
       </div> 
       </div>
-      <div class="form-group mb-3">
+      <!-- <div class="form-group mb-3">
         <div class="col-md-12">
         <label>*Meeting Type:</label>
         <input type="text" class="form-control" formControlName="meetingType" >
         </div>
-        </div>
-    <button type="submit" class="btn btn-success w-25" >Update</button>
+        </div> -->
+        <div class="form-group mb-3">
+          <div class="col-md-12">
+          <label>*Meeting Type:</label>
+          <select type="text" class="form-control"  formControlName="meetingType">
+            <option value="SprintReview">SprintReview</option>
+            <option value="SprintPlanning">SprintPlanning</option>
+            <option value="DailyScrum">DailyScrum</option>
+            <option value="SprintRetrospective">SprintRetrospective</option>
+          </select>
+          </div>
+          </div>
+    <button type="submit" class="btn btn-success" >Update</button>
+  </div>
   </form>
 </div>
+<!-- <div class="row">
+  <div class="col-md-12 form-group mb-3">
+   <label>*Meeting Type</label>
+  <select type="text" class="form-control" ngModel name="meetingType" #meetingtype="ngModel">
+  <option value="SprintReview">SprintReview</option>
+  <option value="SprintPlanning">SprintPlanning</option>
+  <option value="DailyScrum">DailyScrum</option>
+  <option value="SprintRetrospective">SprintRetrospective</option>
+   </select>
+   </div>
+   </div> -->

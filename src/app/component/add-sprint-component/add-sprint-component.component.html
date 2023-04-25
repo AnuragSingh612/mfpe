@@ -2,10 +2,10 @@
   <div class="mx-auto w-25" style="max-width:100%">
     <h2>Create a new Sprint</h2>
     <form (ngSubmit)="onSubmit()">
-      <div class="form-group mb-3">
+      <div class="card">
+        <div class="form-group">
         <div class="row">
-          <div class="col-md-12 form-group mb-3">
-  
+        <div class="col-md-12 form-group mb-3">
         <label>*Project Code:</label>
         <input type="text" class="form-control" id="projectCode"
         [(ngModel)]="sprint.projectCode" required
@@ -21,26 +21,24 @@
         </div>
         </div>
         </div>
-      <div class="form-group mb-3">
+        <div class="form-group">
         <div class="row">
-          <div class="col-md-12 form-group mb-3">
+        <div class="col-md-12 form-group mb-3">
         <label>*Start Date:</label>
         <input type="datetime-local" class="form-control" id="startDate"
         [(ngModel)]="sprint.startDate"required ngModel name="startDate" #namee="ngModel">
-
         <div *ngIf="namee.invalid && (namee.dirty || namee.touched)"
         class="alert alert-danger">
         <div *ngIf="namee.errors?.required">
         Start Date is required.
       </div> 
-        </div>
-      
-      </div> 
-        </div>
       </div>
-      <div class="form-group mb-3">
-        <div class="row">
-          <div class="col-md-12 form-group mb-3">
+      </div>
+      </div>
+      </div>
+      <div class="form-group">
+      <div class="row">
+        <div class="col-md-12 form-group mb-3">
         <label>*End Date:</label>
         <input type="datetime-local" class="form-control" id="endDate"
         [(ngModel)]="sprint.endDate" required ngModel name="endDate" #enddate="ngModel">
@@ -51,13 +49,13 @@
        class="alert alert-danger">
        <div *ngIf="enddate.errors?.required">
        End Date is required.
-     </div> 
-       </div>
-        
       </div> 
-        </div>
+      </div>  
+      </div> 
+      </div>
       </div>
       <button type="submit" class="btn btn-primary" >Create</button>
+    </div>
     </form>
   </div>
     <h2>List of Sprints</h2>
