@@ -25,6 +25,7 @@ export class AddSprintComponentComponent implements OnInit {
     this.sprintservice.createSprint(this.sprint).subscribe(data =>{
       console.log(data);
       
+      
     })
     
   }
