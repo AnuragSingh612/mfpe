@@ -41,8 +41,10 @@ export class RescheduleMeetingComponentComponent {
     
     console.log("Function is called for id:"+this.id);
     let response= this.http.get('http://localhost:8080/api/meetings/'+this.id+"");
-   response.subscribe((data)=>this.meetings=data); 
+   response.subscribe((data)=>this.meetings=data);
    console.log(this.meetings);
+  //  if(this.meetings==undefined)
+  //  Swal.fire("Meeting does not exist for current Id");
    this.meetingForm.patchValue(this.meetings); 
   }
   onSubmit(data:Meetings){

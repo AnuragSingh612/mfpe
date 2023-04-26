@@ -11,10 +11,6 @@ export class MeetingServiceService {
 
   private url='http://localhost:8080/api/meetings/new';
 constructor(private http:HttpClient) { }
-// createMeeting(meeting:Meetings):Observable<Object>{
-//   console.log("--> ",meeting);
-//   return this.httpClient.post(`${this.url}`,meeting);
-// }
 saveMeeting(data:Meetings):Observable<Object>{
   console.log("---->"+data.sprintId);
   if(data.meetingLink==''){

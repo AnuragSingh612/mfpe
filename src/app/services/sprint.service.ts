@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, isEmpty, map } from 'rxjs';
 import { Sprint } from '../common/sprint';
 import Swal from 'sweetalert2';
+import { isDate } from 'moment';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,11 +20,11 @@ export class SprintService {
       Swal.fire("End date should be greater than Start Date");
       return new Observable<Sprint>;
     }
-    else if(sprint.projectCode==null || sprint.projectCode==""){
+    else if(sprint.projectCode==null){
       Swal.fire("Project Code is required!");
       return new Observable<Sprint>;
     }
-    else if(sprint.startDate==null || sprint.startDate==new Date()){
+    else if(sprint.startDate==null){
       Swal.fire("Start Date is required!");
       return new Observable<Sprint>;
     }
@@ -36,8 +37,5 @@ export class SprintService {
       return this.httpClient.post(`${this.posturl}`,sprint);
     }
   }
-  // createMeeting(meeting:Meetings):Observable<Object>{
-  //   return this.httpClient.post(`${this.posturl}`,sprint);
-  // }
 }
 

@@ -24,7 +24,7 @@
         <div class="row">
           <div class="col-md-12 form-group mb-3">
         <label>*Meeting Password:</label>
-        <input type="text" class="form-control" ngModel name="meetingPassword" required #meetingpassword="ngModel">
+        <input type="password" class="form-control" ngModel name="meetingPassword" required #meetingpassword="ngModel">
         <div *ngIf="meetingpassword.invalid && (meetingpassword.dirty || meetingpassword.touched)"
         class="alert alert-danger">
         <div *ngIf="meetingpassword.errors?.required">

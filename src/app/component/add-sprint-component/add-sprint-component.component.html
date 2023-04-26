@@ -7,9 +7,9 @@
         <div class="row">
         <div class="col-md-12 form-group mb-3">
         <label>*Project Code:</label>
-        <input type="text" class="form-control" id="projectCode"
+        <input type="number" class="form-control" id="projectCode"
         [(ngModel)]="sprint.projectCode" required
-        ngModel name="projectCode" #name="ngModel">
+        ngModel name="projectCode" #name="ngModel" placeholder="Eg: 12345">
         <!--Validations-->
         <div *ngIf="name.invalid && (name.dirty || name.touched)"
         class="alert alert-danger">
