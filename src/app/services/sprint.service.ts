@@ -19,8 +19,21 @@ export class SprintService {
       Swal.fire("End date should be greater than Start Date");
       return new Observable<Sprint>;
     }
+    else if(sprint.projectCode==null || sprint.projectCode==""){
+      Swal.fire("Project Code is required!");
+      return new Observable<Sprint>;
+    }
+    else if(sprint.startDate==null || sprint.startDate==new Date()){
+      Swal.fire("Start Date is required!");
+      return new Observable<Sprint>;
+    }
+    else if(sprint.endDate==null || sprint.endDate==new Date()){
+    Swal.fire("End Date is required");
+    return new Observable<Sprint>;
+    }
     else{
-    return this.httpClient.post(`${this.posturl}`,sprint);
+      Swal.fire("Sprint Created!");
+      return this.httpClient.post(`${this.posturl}`,sprint);
     }
   }
   // createMeeting(meeting:Meetings):Observable<Object>{

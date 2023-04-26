@@ -5,7 +5,7 @@ export class Meetings {
     Id:number;
     meetingDate:Date;
     meetingTime:Time;
-    sprintID:number;
+    sprintId:number;
     meeting_platform_id:number;
     meetingType:string;
     meetingLink:string;

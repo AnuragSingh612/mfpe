@@ -50,6 +50,7 @@ export class AddMeetingsComponentComponent implements OnInit{
 
   onSubmit(data:Meetings){
     
+    console.log(data.sprintId);
     console.log(data);
     this.meetingser.saveMeeting(data).subscribe((data)=>{
      console.log("---->>>>"+data);

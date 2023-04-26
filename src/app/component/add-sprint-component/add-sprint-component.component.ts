@@ -31,7 +31,7 @@ export class AddSprintComponentComponent implements OnInit {
   }
   onSubmit(){
     // console.log(this.sprint);
-    Swal.fire("Sprint Created!");
+    
     this.saveSprint();
   }
 

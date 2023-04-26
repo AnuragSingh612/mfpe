@@ -6,6 +6,7 @@ import { RescheduleserviceService } from 'src/app/services/rescheduleservice.ser
 import { Meetings } from 'src/app/common/meetings';
 import { MeetingServiceService } from 'src/app/services/meeting-service.service';
 import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-reschedule-meeting-component',
   templateUrl: './reschedule-meeting-component.component.html',
@@ -46,11 +47,20 @@ export class RescheduleMeetingComponentComponent {
   }
   onSubmit(data:Meetings){
     
-    console.log(data);
+    console.log("------->"+data.meetingTime);
+ 
+    if(data.meetingLink==''|| data.meetingType==''|| data.meetingDate==null || data.meetingTime==null)
+    {
+      Swal.fire("Missing data is required!");
+      return new Meetings;
+    }
+    else{
+      return this.http.patch('http://localhost:8080/api/meetings/update/'+this.id+"",data).subscribe((dataq)=>{
+        Swal.fire("Meeting got updated!");
+        console.log(dataq);
+       })
+    }
     
-    return this.http.patch('http://localhost:8080/api/meetings/update/'+this.id+"",data).subscribe((dataq)=>{
-      Swal.fire("Meeting got updated!");
-     })
      
   }
 }

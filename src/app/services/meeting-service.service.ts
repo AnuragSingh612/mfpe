@@ -16,20 +16,43 @@ constructor(private http:HttpClient) { }
 //   return this.httpClient.post(`${this.url}`,meeting);
 // }
 saveMeeting(data:Meetings):Observable<Object>{
-  console.log("---->"+data.meeting_platform_id);
-  if(data.meetingLink==='' ||
-     data.meetingPassword==='' ||
-      data.meetingDate===null ||
-       data.meetingTime===null||
-       data.meetingType=='' || 
-       data.status==='' ||
-        data.sprintID===null
-       || data.meeting_platform_id===null)
-       {
-        Swal.fire("Required data is missing");
-        return new Observable<Meetings>;
-       }
-       else
-      return this.http.post(this.url,data);
+  console.log("---->"+data.sprintId);
+  if(data.meetingLink==''){
+    Swal.fire("Meeting link is missing");
+    return new Observable<Meetings>;
+  }
+  else if(data.meetingPassword==''){
+    Swal.fire("Password is missing");
+    return new Observable<Meetings>;
+  }
+  else if(data.meetingDate==null){
+    Swal.fire("Meeting Date is missing");
+    return new Observable<Meetings>;
+  }    
+  else if(data.meetingTime==null){
+    Swal.fire("Meeting Type is missing");
+    return new Observable<Meetings>;
+  }
+  else if(data.meetingType=='')
+  {
+    Swal.fire("Meeting Type is missing");
+    return new Observable<Meetings>;
+  }
+  else if(data.status==''){
+    Swal.fire("Meeting Status is missing");
+    return new Observable<Meetings>;
+  }
+  else if(data.sprintId==null){
+    Swal.fire("Sprint is missing");
+    return new Observable<Meetings>;
+  }
+  else if( data.meeting_platform_id==null){
+    Swal.fire("Meeting platform is missing");
+    return new Observable<Meetings>;
+  }      
+  else{
+    return this.http.post(this.url,data);
+  }
+    
 }
 }
