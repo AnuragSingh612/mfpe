@@ -1,0 +1,7 @@
+<div class="my-5">
+    <div *ngIf="isAuthenticated && userFullName">
+        <h6 style="color: aliceblue;">Welcome back {{ userFullName }}!</h6>
+    </div>
+    <button *ngIf="!isAuthenticated" routerLink="/login" class="btn btn-primary">Login</button>
+    <button *ngIf="isAuthenticated" (click)="logout()" class="btn btn-primary">Logout</button>
+</div>

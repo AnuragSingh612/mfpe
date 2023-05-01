@@ -25,22 +25,18 @@
   </div>
 </nav> -->
 <nav class="navbar navbar-expand ">
-  <div class="container">
+  <div class="container-fluid">
     <a class="navbar-brand">PROJECT MANAGEMENT</a>
     <ul class="nav nav-pills">
   <li class="nav-item" ><a class="nav-link active" routerLink="/add-sprint" > Create Sprint    </a></li>
   <li class="nav-item"><a class="nav-link active" routerLink="/add-meetings" >  Meetings  </a></li>
   <li class="nav-item"><a class="nav-link active" routerLink="/reschedule-meeting">Alter Meetings</a></li>
-   <!-- <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" >Action</a>
-      <a class="dropdown-item" >Another action</a>
-      <a class="dropdown-item" >Something else here</a>
-    </div>
-  </li>  -->
-    </ul>
+  
+  </ul>
   </div>
+  <app-login-status></app-login-status> 
+   
+ 
 </nav>
 
 <router-outlet></router-outlet>

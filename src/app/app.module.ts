@@ -14,12 +14,25 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { MomentDateModule } from '@angular/material-moment-adapter';
 import { MatInputModule } from '@angular/material/input';
+import { LoginComponent } from './component/login/login.component';
+import { LoginStatusComponent } from './component/login-status/login-status.component';
+import{
+  OktaAuthModule,
+  OktaCallbackComponent,
+  OKTA_CONFIG
+} from '@okta/okta-angular';
+import {OktaAuth} from '@okta/okta-auth-js';
+import myAppConfig from './config/my-app-config';
+const oktaConfig = myAppConfig.oidc;
+const oktaAuth = new OktaAuth(oktaConfig);
 @NgModule({
   declarations: [
     AppComponent,
     AddSprintComponentComponent,
     AddMeetingsComponentComponent,
-    RescheduleMeetingComponentComponent
+    RescheduleMeetingComponentComponent,
+    LoginComponent,
+    LoginStatusComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +44,10 @@ import { MatInputModule } from '@angular/material/input';
     MatNativeDateModule,
     BrowserAnimationsModule ,
     MomentDateModule,
-    MatInputModule 
+    MatInputModule,
+    OktaAuthModule 
   ],
-  providers: [],
+  providers: [{provide: OKTA_CONFIG,useValue:{oktaAuth}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
